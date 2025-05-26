@@ -1,0 +1,27 @@
+package com.bhabishwor.app.security;
+
+import java.time.Instant;
+import java.time.temporal.ChronoUnit;
+import java.util.List;
+
+import org.springframework.stereotype.Component;
+
+import com.auth0.jwt.JWT;
+import com.auth0.jwt.algorithms.Algorithm;
+
+import lombok.RequiredArgsConstructor;
+
+@Component
+@RequiredArgsConstructor
+public class JwtIssuer {
+	private final JwtProperties properties;
+
+	public String createToken(long userId, String email, List<String> roles) {
+		return JWT.create()
+			.withSubject(String.valueOf(userId))
+			.withClaim("email", email)
+			.withClaim("roles", roles)
+			.withExpiresAt(Instant.now().plus(5, ChronoUnit.MINUTES))
+			.sign(Algorithm.HMAC256(properties.getSecretKey()));
+	}
+}
