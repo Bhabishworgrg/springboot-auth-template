@@ -15,3 +15,6 @@ build/
 bin/
 !**/src/main/**/bin/
 !**/src/test/**/bin/
+
+### Cache ###
+kls_database.db
