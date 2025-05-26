@@ -21,7 +21,7 @@ public class WebSecurityConfig {
 			.csrf(csrf -> csrf.disable())
 			.securityMatcher("/**")
 			.authorizeHttpRequests(registry -> registry
-				.requestMatchers("/").permitAll()
+				.requestMatchers("/", "/login").permitAll()
 				.anyRequest().authenticated()
 			);
 
