@@ -12,6 +12,8 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
+import com.bhabishwor.app.service.UserService;
+
 import lombok.RequiredArgsConstructor;
 
 @Configuration
@@ -19,7 +21,7 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class WebSecurityConfig {
 	private final JwtAuthenticatedFilter jwtAuthenticatedFilter;
-	private final CustomUserDetailService customUserDetailService;
+	private final UserService userService;
 
 	@Bean
 	public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
@@ -49,7 +51,7 @@ public class WebSecurityConfig {
 	public AuthenticationManager authenticationManager(HttpSecurity http) throws Exception {
 		AuthenticationManagerBuilder authBuilder = http.getSharedObject(AuthenticationManagerBuilder.class);
 		authBuilder
-			.userDetailsService(customUserDetailService)
+			.userDetailsService(userService)
 			.passwordEncoder(passwordEncoder());
 		return authBuilder.build();
 	}
