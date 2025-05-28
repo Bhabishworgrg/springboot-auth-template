@@ -12,6 +12,4 @@ public class UserEntity {
 	private String email;
 	@JsonIgnore
 	private String password;
-	private String role;
-	private String extraInfo;
 }

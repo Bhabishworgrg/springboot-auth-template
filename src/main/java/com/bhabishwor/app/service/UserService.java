@@ -19,8 +19,6 @@ public class UserService {
 		user.setId(1L);
 		user.setEmail(EXISTING_EMAIL);
 		user.setPassword("$2a$12$ZrHClEY3PVH9kty.qkfftuLEdmPUMJ6jXadknxXBZvmT/AjQXjCcu");
-		user.setRole("ADMIN");
-		user.setExtraInfo("This is admin");
 		return Optional.of(user);
 	}
 }

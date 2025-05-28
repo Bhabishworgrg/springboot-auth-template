@@ -16,11 +16,10 @@ import lombok.RequiredArgsConstructor;
 public class JwtIssuer {
 	private final JwtProperties properties;
 
-	public String createToken(long userId, String email, List<String> roles) {
+	public String createToken(long userId, String email) {
 		return JWT.create()
 			.withSubject(String.valueOf(userId))
 			.withClaim("email", email)
-			.withClaim("roles", roles)
 			.withExpiresAt(Instant.now().plus(5, ChronoUnit.MINUTES))
 			.sign(Algorithm.HMAC256(properties.getSecretKey()));
 	}

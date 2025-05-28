@@ -35,10 +35,7 @@ public class AuthController {
 
 		String token = jwtIssuer.createToken(
 			principal.getUserId(),
-			principal.getEmail(),
-			principal.getAuthorities().stream()
-				.map(grantedAuthority -> grantedAuthority.getAuthority())
-				.toList()
+			principal.getEmail()
 		);
 
 		return LoginResponse.builder()
