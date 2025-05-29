@@ -2,7 +2,6 @@ package com.bhabishwor.app.security;
 
 import java.time.Instant;
 import java.time.temporal.ChronoUnit;
-import java.util.List;
 
 import org.springframework.stereotype.Component;
 
@@ -20,7 +19,7 @@ public class JwtIssuer {
 		return JWT.create()
 			.withSubject(String.valueOf(userId))
 			.withClaim("email", email)
-			.withExpiresAt(Instant.now().plus(5, ChronoUnit.MINUTES))
+			.withExpiresAt(Instant.now().plus(30, ChronoUnit.DAYS))
 			.sign(Algorithm.HMAC256(properties.getSecretKey()));
 	}
 }
