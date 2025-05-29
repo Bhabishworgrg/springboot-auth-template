@@ -1,4 +1,4 @@
-package com.bhabishwor.app.model;
+package com.bhabishwor.app.dto;
 
 import lombok.Builder;
 import lombok.Getter;
