@@ -12,8 +12,6 @@ A starter Spring Boot project with secure JWT-based authentication. Ideal for bu
 - Modular project structure for scalability
 - Ready-to-use for real projects or learning
 
----
-
 ## Usage
 1. Clone the repository.
 2. Create a PostgreSQL database.
@@ -43,8 +41,6 @@ spring:
 ```bash
 ./gradlew bootRun
 ```
-
----
 
 ## Endpoints
 
