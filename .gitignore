@@ -18,3 +18,6 @@ bin/
 
 ### Cache ###
 kls_database.db
+
+### Kitty Session Config ###
+session.kitty
